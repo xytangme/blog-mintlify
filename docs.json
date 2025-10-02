@@ -1,7 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "mint",
-  "name": "Mint Starter Kit",
+  "theme": "maple",
+  "name": "xytangme",
   "colors": {
     "primary": "#16A34A",
     "light": "#07C983",
@@ -9,96 +9,55 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "groups": [
       {
-        "tab": "Guides",
-        "groups": [
-          {
-            "group": "Getting started",
-            "pages": [
-              "index",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Customization",
-            "pages": [
-              "essentials/settings",
-              "essentials/navigation"
-            ]
-          },
-          {
-            "group": "Writing content",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "AI tools",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          }
-        ]
-      },
-      {
-        "tab": "API reference",
-        "groups": [
-          {
-            "group": "API documentation",
-            "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
-            ]
-          }
+        "group": "Posts",
+        "pages": [
+          "posts/derivatives-004",
+          "posts/derivatives-003",
+          "posts/malaysia-boleh-003",
+          "posts/malaysia-boleh-002",
+          "posts/derivatives-002",
+          "posts/malaysia-boleh-001",
+          "posts/on-ai-coding-001",
+          "posts/run-win11-on-macos",
+          "posts/reading-stack-2025",
+          "posts/hugo-papermod-googleanalytics",
+          "posts/derivatives-001",
+          "posts/how-I-use-llms",
+          "posts/cx-ops-how-to-02",
+          "posts/cx-ops-how-to-01",
+          "posts/mcp-is-the-new-alexa",
+          "posts/llm-driven-enterprise-software-customization",
+          "posts/github-to-cloudflare-migration",
+          "posts/tsai-ing-wen",
+          "posts/bikhim-n-ingwen",
+          "posts/nlp-practice-you-never-heard-before",
+          "posts/import-weread-highlights-to-readwise",
+          "posts/ebook-and-eink",
+          "posts/mereka-boleh",
+          "posts/no-img-blog",
+          "posts/authors-i-read-in-2022",
+          "posts/life-after-being-laid-off",
+          "posts/data-infra-episode-1",
+          "posts/hell-world",
+          "posts/opera-weekly-07",
+          "posts/opera-weekly-06",
+          "posts/opera-weekly-05",
+          "posts/opera-weekly-04",
+          "posts/opera-weekly-03",
+          "posts/opera-weekly-02",
+          "posts/opera-weekly-01",
+          "posts/opera-starter-04",
+          "posts/opera-starter-03",
+          "posts/opera-the-only-rule",
+          "posts/opera-starter-02",
+          "posts/opera-starter-01",
+          "posts/opera-rocks",
+          "posts/why-no-phd"
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
+    ]
   },
   "contextual": {
     "options": [
@@ -111,12 +70,5 @@
      "cursor",
      "vscode"
    ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
   }
 }

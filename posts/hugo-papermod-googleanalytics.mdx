@@ -1,0 +1,39 @@
+---
+title: "如何给Hugo PaperMod主题配置Google Analytics"
+date: 2025-03-11T11:44:13+08:00
+draft: false
+---
+
+因为PaperMod Wiki的[Google Analytics integration](https://github.com/adityatelange/hugo-PaperMod/wiki/Features#google-analytics-integration)内容常年缺失，我也懒得研究，但[受到象友启发](https://m.cmx.im/@yun5s@go5.dev/114141272130224719)，加上[Perplexity](https://www.perplexity.ai/)加持，竟然五分钟就搞定了拖延好几年的事情，真·这是最好的时代。
+
+### 第一步：Google Analytics创建Account和Property
+
+- Account和Property是一个两层的分类体系，在博客这个场景下可简单理解为，Account = 个人博客，Property A = 一个博客，Property B = 另一个博客，etc
+- 另外还有一个第三层分类体系Stream，直接对应于一个被追踪的对象，比如一个网站URL
+- 在一个Property下，可以通过Property settings -> Data collection and modification -> Data streams找到一个Measurement Id，第一步就完成了
+
+
+### 第二步：更新Hugo配置
+
+- 在配置文件，比如 `config.yaml`里添加以下内容
+   ```yaml
+   services:
+     googleAnalytics:
+       id: G-XXXXXXXXXX  # 替换成第一步最后找到的 Measurement ID
+   ```
+- 创建一个Partial Template，路径使用`layouts/_internal/google_analytics.html`
+   ```html
+   {{ define "google_analytics" }}
+   <script async src="https://www.googletagmanager.com/gtag/js?id={{ .Site.Data.config.googleAnalytics.id }}"></script>
+   <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+     gtag('config', '{{ .Site.Data.config.googleAnalytics.id }}');
+   </script>
+   {{ end }}
+   ```
+
+### 第三步：发布更新
+
+EOF

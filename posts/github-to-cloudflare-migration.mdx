@@ -1,0 +1,23 @@
+---
+title: "Bye Github Pages, Hello Cloudflare Pages"
+date: 2024-05-29T17:52:34+08:00
+draft: false
+---
+
+因为想要创建一个新的站点，GitHub Pages每个账号又只支持一个静态网站的部署，遂迁移至传说中的赛博菩萨Cloudflare提供的服务，是以为记。
+
+用GitHub Pages部署的站点[想要删除](https://docs.github.com/en/pages/getting-started-with-github-pages/deleting-a-github-pages-site)，有两种方式，要么删除repository，要么把部署分支设置为None。不知道为什么我设置为None之后不能保存，所以只能删除repo。
+
+第一步，在本地clone原repository，删除```gh-pages.yml```之后，提交至另外一个新创建的repository。
+
+第二步，参考[教程](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/#deploy-with-cloudflare-pages)，在Cloudflare Pages页面连接GitHub，选择repository，设置分支为```main```，构建命令为```hugo -b $CF_PAGES_URL```，构建文件夹为```public```，点击```Save and Deploy```，就大功告成了。
+
+太丝滑了罢！
+
+05-30更新：
+
+有一个问题是，每次构建之后，点开文章会跳转一个类似```<hash>.<project>.pages.dev```的地址，而不是```<project>.pages.dev```。从Perplexity的引用里找到这篇文章，并在评论里看到可以把构建命令改为```hugo -b $CF_PAGES_URL --minify```解决问题，更新一下试试。
+
+失败了，重看一遍文章，发现还有一条是把```$CF_PAGES_URL```变量名写死成base URL，再试。
+
+成功！
