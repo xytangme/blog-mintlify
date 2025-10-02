@@ -13,6 +13,7 @@
       {
         "group": "Posts",
         "pages": [
+          "posts/cloudflare-to-mintlify-migration",
           "posts/derivatives-004",
           "posts/derivatives-003",
           "posts/malaysia-boleh-003",
