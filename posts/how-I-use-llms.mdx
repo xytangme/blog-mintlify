@@ -1,66 +1,61 @@
 ---
 title: "How I Uses LLMs"
-date: 2025-03-03T16:53:15+08:00
-draft: false
+date: "Mon Mar 03 2025 16:53:15 GMT+0800 (Singapore Standard Time)"
 ---
+
+Updated: [How I Uses LLMs (Oct)](posts/how-I-use-llms-oct)
 
 刷完了Andrej Karpathy这个[How I use LLMs](https://youtu.be/EWvNQjAaOHw)视频，学到了一些小技巧，融合我自己的理解，和最近使用各位LLM老师的心路历程，是以为记。
 
 1. 关注不同模型的特点。人工智障这两年进展迅猛，但各家的技术策略并不一样，导致不同模型擅长的技能并不相同，所以需要根据任务类型来选择合适的模型。AK的意思是，ChatGPT是很好的默认选项，说得不错，但我认为还是要看自己最高频使用的场景，然后将默认模型设置为那个场景最好用的模型。另外是选择官方网页版还是调用API也是个问题，我的观点是官方\>\>\>\>\>\>\>\>套壳。
-
-    - ChatGPT应用免费版：能力均衡，如果没有特别的需要，可以作为默认选项，大部分情况已经很够用，并且在“免费、没有额度限制、回复快”这个不可能三角里没有一个能打
-    - ChatGPT应用Plus: 最有用的是advanced voice mode，其他feature聊胜于无，不过如果喜欢在一个应用完成文字、图片和视频生成的话，好像也没有更好的选择了
-    - ChatGPT应用Pro: 没用过，也不觉得一般人有尝试的必要，跳过
-    - Claude: Sonnet系列在编程领域无人能敌，但出了编程Claude家的模型好像就没有什么存在感了，我自己喜欢把报错信息贴到官方应用来debug，办公电脑限制没办法用来生成工作用代码，自己玩的项目为了跨平台编辑和部署的方便我选择Replit
-    - [Replit](https://replit.com/refer/2011txy): 很少见的我可以吹爆的产品，已经成功让好几个朋友上瘾+氪金，因为是多端同步的云端IDE和一键部署，并且集成了各种常用的组件，比如数据库和鉴权，所以可以在电脑或者手机上创建任何网站应用
-    - Cursor / Cline: 在写代码方面，如果不是写网页应用，更好的选择还是更“专业”的应用，毕竟[Replit](https://replit.com/refer/2011txy)的核心目标用户群并不是程序员
-    - Google AI Studio + Gemini: 主打原生多模态和长上下文，有此类需求的可选，能力上中规中矩，属于起了个大早赶了个晚集又弯道超车，可以说非常谷歌，早年经常触发风控，现在好像不太碰到了，记住要通过Google AI Studio来使用，Gemini APP就是个废物
-    - Perplexity: 套壳之王，通用搜索场景无人能敌，在我常用的搜索场景下，结果质量与Gemini 2.0 Flash大体相当，但在我也说不上来的细节处理方面更胜一筹，坐等Gemini 2.0 Pro正式发布之后再测看看
-    - Grok: 后起之秀，最大的特点是什么都能干，别家答不上的不给说的，它都可以，写小黄文的不二之选
-
+   - ChatGPT应用免费版：能力均衡，如果没有特别的需要，可以作为默认选项，大部分情况已经很够用，并且在“免费、没有额度限制、回复快”这个不可能三角里没有一个能打
+   - ChatGPT应用Plus: 最有用的是advanced voice mode，其他feature聊胜于无，不过如果喜欢在一个应用完成文字、图片和视频生成的话，好像也没有更好的选择了
+   - ChatGPT应用Pro: 没用过，也不觉得一般人有尝试的必要，跳过
+   - Claude: Sonnet系列在编程领域无人能敌，但出了编程Claude家的模型好像就没有什么存在感了，我自己喜欢把报错信息贴到官方应用来debug，办公电脑限制没办法用来生成工作用代码，自己玩的项目为了跨平台编辑和部署的方便我选择Replit
+   - [Replit](https://replit.com/refer/2011txy): 很少见的我可以吹爆的产品，已经成功让好几个朋友上瘾+氪金，因为是多端同步的云端IDE和一键部署，并且集成了各种常用的组件，比如数据库和鉴权，所以可以在电脑或者手机上创建任何网站应用
+   - Cursor / Cline: 在写代码方面，如果不是写网页应用，更好的选择还是更“专业”的应用，毕竟[Replit](https://replit.com/refer/2011txy)的核心目标用户群并不是程序员
+   - Google AI Studio + Gemini: 主打原生多模态和长上下文，有此类需求的可选，能力上中规中矩，属于起了个大早赶了个晚集又弯道超车，可以说非常谷歌，早年经常触发风控，现在好像不太碰到了，记住要通过Google AI Studio来使用，Gemini APP就是个废物
+   - Perplexity: 套壳之王，通用搜索场景无人能敌，在我常用的搜索场景下，结果质量与Gemini 2.0 Flash大体相当，但在我也说不上来的细节处理方面更胜一筹，坐等Gemini 2.0 Pro正式发布之后再测看看
+   - Grok: 后起之秀，最大的特点是什么都能干，别家答不上的不给说的，它都可以，写小黄文的不二之选
 2. 单独说一下套壳。
+   - 首先，如果不考虑GFW或者其他原因导致无法访问官方应用，套壳一般来讲没什么必要，因为套不好。如果需要切换模型，切换官方应用也能基本满足需求
+   - 其次，在尝试过所有常见的套壳应用之后，一个能用超过两天的都没有，因为都太“丑”了。要么过于花里胡哨，要么功能过于复杂，要么被公司防火墙拦截了（？总之就是官方大法好
+   - 但！就在看完AK视频之后，我又试了一个[Raycast AI](https://manual.raycast.com/ai)，已经高频使用好几天，并决定付费了。因为
+     1. 界面非常简单，该有的都有，可以没有的都没有，可以有可以没有的视觉上都弱化了
+     2. 快捷键是Raycast的看家本领，AI相关的功能无缝融入，过于好用
+     3. 接入了Perplexity API，可以每月8块钱享受到官方20块才有的用量，夺好呐
+     4. 模型不够用了还能再加钱，再加8块即可用上几乎所有的主流模型，16块还是没超过20块，定价十分良心。如果说有什么不好的，想成为affiliate还得注册wise，wise开户必须先充30块？可能我没搞明白规则，但没关系，世上无难事只要肯放弃
+   - 这两天Raycast AI高频的使用场景：
+     - 浏览器看内容，边看边用它查相关的概念，解释没看懂的地方，切换应用比切换浏览器tab还是舒服一些
+     - 同一个问题切换模型来回答，测试哪个最好用，结论是搜索场景维持原判，perplexity YYDS
+1. 谨慎按需使用各种“高级功能”。当前常见的外挂有：联网、文件上传、推理（“思考”）、深度研究
+   - 联网：我一直有个暴论，AI通用搜索是个伪命题，模型的能力才是问答场景的核心竞争力。非常建议常常比较联网和不联网两种情况下回答的质量，如果不是时效性很高的新闻，我的体感是很多情况下差别不大，如果对时效性有要求，可能Grok是唯一合适的模型，因为可以实时采集到X数据
+   - 文件上传：企业场景是刚需，而且很难做好，但个人使用没想到什么高频场景
+   - 推理（“思考”）：还没有探索出来什么时候是必选项，体感是如果快就把它设置成默认开启，如果慢就算了，为了一个答案等那么久，搜索熟练工表示大可不必，除非是不熟悉的领域
+   - 深度研究：本人辣评是，花拳绣腿，看上去好像很厉害，但你也不知道它是不是在胡言乱语，最有用的是捞出来的链接，但这样为什么不直接谷歌呢？
+2. 场景场景场景，体感体感体感。少看榜单数据，多自己体验，毕竟基座模型不管怎么进化都有做不好的地方，以后咱的核心技能就是知道怎么调教人工智障，而这个技能的习得唯有靠大量消耗token和多多反思如何能调教的更好。今年给自己立下了SaaS产品订阅和模型token消耗的flag，过段时间来看有没有新的心得
 
-    - 首先，如果不考虑GFW或者其他原因导致无法访问官方应用，套壳一般来讲没什么必要，因为套不好。如果需要切换模型，切换官方应用也能基本满足需求
-    - 其次，在尝试过所有常见的套壳应用之后，一个能用超过两天的都没有，因为都太“丑”了。要么过于花里胡哨，要么功能过于复杂，要么被公司防火墙拦截了（？总之就是官方大法好
-    - 但！就在看完AK视频之后，我又试了一个[Raycast AI](https://manual.raycast.com/ai)，已经高频使用好几天，并决定付费了。因为
-        1. 界面非常简单，该有的都有，可以没有的都没有，可以有可以没有的视觉上都弱化了
-        2. 快捷键是Raycast的看家本领，AI相关的功能无缝融入，过于好用
-        3. 接入了Perplexity API，可以每月8块钱享受到官方20块才有的用量，夺好呐
-        4. 模型不够用了还能再加钱，再加8块即可用上几乎所有的主流模型，16块还是没超过20块，定价十分良心。如果说有什么不好的，想成为affiliate还得注册wise，wise开户必须先充30块？可能我没搞明白规则，但没关系，世上无难事只要肯放弃
-    - 这两天Raycast AI高频的使用场景：
-        - 浏览器看内容，边看边用它查相关的概念，解释没看懂的地方，切换应用比切换浏览器tab还是舒服一些
-        - 同一个问题切换模型来回答，测试哪个最好用，结论是搜索场景维持原判，perplexity YYDS
+附Andrej Karpathy原视频时间戳
 
-3. 谨慎按需使用各种“高级功能”。当前常见的外挂有：联网、文件上传、推理（“思考”）、深度研究
-
-    - 联网：我一直有个暴论，AI通用搜索是个伪命题，模型的能力才是问答场景的核心竞争力。非常建议常常比较联网和不联网两种情况下回答的质量，如果不是时效性很高的新闻，我的体感是很多情况下差别不大，如果对时效性有要求，可能Grok是唯一合适的模型，因为可以实时采集到X数据
-    - 文件上传：企业场景是刚需，而且很难做好，但个人使用没想到什么高频场景
-    - 推理（“思考”）：还没有探索出来什么时候是必选项，体感是如果快就把它设置成默认开启，如果慢就算了，为了一个答案等那么久，搜索熟练工表示大可不必，除非是不熟悉的领域
-    - 深度研究：本人辣评是，花拳绣腿，看上去好像很厉害，但你也不知道它是不是在胡言乱语，最有用的是捞出来的链接，但这样为什么不直接谷歌呢？
-
-4. 场景场景场景，体感体感体感。少看榜单数据，多自己体验，毕竟基座模型不管怎么进化都有做不好的地方，以后咱的核心技能就是知道怎么调教人工智障，而这个技能的习得唯有靠大量消耗token和多多反思如何能调教的更好。今年给自己立下了SaaS产品订阅和模型token消耗的flag，过段时间来看有没有新的心得
-
-
-附Andrej Karpathy原视频时间戳 
-- 00:00:00 Intro into the growing LLM ecosystem 
-- 00:02:54 ChatGPT interaction under the hood 
-- 00:13:12 Basic LLM interactions examples 
-- 00:18:03 Be aware of the model you're using, pricing tiers 
-- 00:22:54 Thinking models and when to use them 
-- 00:31:00 Tool use: internet search 
-- 00:42:04 Tool use: deep research 
-- 00:50:57 File uploads, adding documents to context 
-- 00:59:00 Tool use: python interpreter, messiness of the ecosystem 
-- 01:04:35 ChatGPT Advanced Data Analysis, figures, plots 
-- 01:09:00 Claude Artifacts, apps, diagrams 
-- 01:14:02 Cursor: Composer, writing code 
-- 01:22:28 Audio (Speech) Input/Output 
-- 01:27:37 Advanced Voice Mode aka true audio inside the model 
-- 01:37:09 NotebookLM, podcast generation 
-- 01:40:20 Image input, OCR 
-- 01:47:02 Image output, DALL-E, Ideogram, etc. 
-- 01:49:14 Video input, point and talk on app 
-- 01:52:23 Video output, Sora, Veo 2, etc etc. 
-- 01:53:29 ChatGPT memory, custom instructions 
-- 01:58:38 Custom GPTs 
+- 00:00:00 Intro into the growing LLM ecosystem
+- 00:02:54 ChatGPT interaction under the hood
+- 00:13:12 Basic LLM interactions examples
+- 00:18:03 Be aware of the model you're using, pricing tiers
+- 00:22:54 Thinking models and when to use them
+- 00:31:00 Tool use: internet search
+- 00:42:04 Tool use: deep research
+- 00:50:57 File uploads, adding documents to context
+- 00:59:00 Tool use: python interpreter, messiness of the ecosystem
+- 01:04:35 ChatGPT Advanced Data Analysis, figures, plots
+- 01:09:00 Claude Artifacts, apps, diagrams
+- 01:14:02 Cursor: Composer, writing code
+- 01:22:28 Audio (Speech) Input/Output
+- 01:27:37 Advanced Voice Mode aka true audio inside the model
+- 01:37:09 NotebookLM, podcast generation
+- 01:40:20 Image input, OCR
+- 01:47:02 Image output, DALL-E, Ideogram, etc.
+- 01:49:14 Video input, point and talk on app
+- 01:52:23 Video output, Sora, Veo 2, etc etc.
+- 01:53:29 ChatGPT memory, custom instructions
+- 01:58:38 Custom GPTs
 - 02:06:30 Summary
