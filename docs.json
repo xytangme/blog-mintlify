@@ -13,6 +13,7 @@
       {
         "group": "Posts",
         "pages": [
+          "posts/on-ai-coding-002",
           "posts/how-I-use-llms-oct",
           "posts/cloudflare-to-mintlify-migration",
           "posts/derivatives-004",
