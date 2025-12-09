@@ -13,6 +13,7 @@
       {
         "group": "Posts",
         "pages": [
+          "posts/vps-deploy-how-to",
           "posts/on-ai-coding-002",
           "posts/how-I-use-llms-oct",
           "posts/cloudflare-to-mintlify-migration",

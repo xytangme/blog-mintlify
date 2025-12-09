@@ -1,0 +1,85 @@
+---
+title: "VPS部署从入门到放弃"
+---
+
+为了好玩，决定试试在VPS上部署我的套壳。
+
+## 准备机器
+
+第一步，先创建一个实例，按需选择区域、机器配置、操作系统、预装应用。为了方便选择把Docker预装上。确认之后等待实例启动完成。
+
+第二步，创建一个用户组并赋予组内用户sudo权限，然后创建一个用户并设置密码。
+
+```bash
+-- 以Ubuntu系统为例
+sudo groupadd <GROUP_NAME>
+echo '%moana ALL=(ALL) NOPASSWD:ALL' | sudo tee -a /etc/sudoers
+sudo useradd -m -G <GROUP_NAME> <USR_NAME>
+sudo passwd <USR_NAME> --执行之后输入两次密码
+```
+
+第三步，安装Git, Docker, Nginx。流程都是一样的，检查系统的包管理器中是否有可用的包，检查用户是否已经安装，如果未安装则通过包管理器来安装它们。
+
+```bash
+-- 以Ubuntu系统为例
+sudo apt update && sudo apt list git docker-ce nginx
+sudo -u xytang git --version || sudo apt install -y git
+sudo -u xytang docker --version || sudo apt install -y docker-ce 
+sudo -u xytang nginx -v || sudo apt install -y nginx
+```
+
+第四步，将第二步创建的用户添加到Docker组中，以便该用户可以管理Docker，同时赋予其对Nginx的管理权限。
+
+```bash
+-- 以Ubuntu系统为例
+sudo usermod -aG docker xytang && sudo usermod -aG www-data xytang
+```
+
+## 准备代码
+
+第一步，创建一个Dockerfile，以便将代码库打包成Docker镜像。注意Dockerfile中要在build之前配置好需要的环境变量，特别注意配置公网域名。
+
+\_第二\_步，创建一个Docker compose yml配置文件，以便方便的构建和启动。
+
+第三步，提交更新后的代码至Github。
+
+## 在VPS上部署代码
+
+第一步，生成SSH密钥对，并打印出公钥，添加至Github
+
+```bash
+-- 以Ubuntu系统为例
+sudo -u xytang [ ! -f /home/xytang/.ssh/id_rsa ] && sudo -u xytang ssh-keygen -t rsa -b 4096 -N "" -f /home/xytang/.ssh/id_rsa
+```
+
+第二步，从Github拉取代码库至本地
+
+第三步，创建一个.env更新好环境变量
+
+第四步，构建并启动docker服务
+
+```bash
+docker compose up --build -d
+```
+
+## 配置VPS的网络和服务器
+
+第一步，添加Nginx配置文件，确认文件没有语法错误之后重启Nginx
+
+```bash
+-- 以Ubuntu系统为例
+sudo vim /etc/nginx/sites-available/<YOUR_APP>
+sudo ln -s /etc/nginx/sites-available/<YOUR_APP> /etc/nginx/sites-enabled/
+sudo nginx -t
+sudo systemctl restart nginx
+```
+
+第二步，开启80和443端口的访问
+
+第三步，给域名的DNS加上A记录，指向服务器IP
+
+## Enjoy
+
+到这里，主要的部署工作都结束了，打开域名即可访问服务。
+
+EOF。
