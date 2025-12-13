@@ -13,6 +13,7 @@
       {
         "group": "Posts",
         "pages": [
+          "posts/moana-001-revamp-01",
           "posts/vps-deploy-how-to",
           "posts/on-ai-coding-002",
           "posts/how-I-use-llms-oct",
